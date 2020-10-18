@@ -49,8 +49,14 @@ public class Character implements Serializable {
 	@Setter
 	private String resourceURI;
 
-	// privateurls (Array[Url], optional): A set of public web site URLs for the
-	// resource.,
+	@JsonIgnore
+	@ManyToMany
+	@JoinTable(		
+			name = "CHARACTER_URL", 
+			joinColumns = @JoinColumn(name = "character_id"),
+			inverseJoinColumns = @JoinColumn(name = "url_id")
+		)
+	private List<Url> urls= new ArrayList<>();
 
 	@Getter
 	@Setter
