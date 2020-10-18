@@ -47,7 +47,7 @@ public class CharacterResource {
 	 * 404 - Not Found
 	 * 500 - Server Errors
 	 * 
-	 * @throws TransactionNotFoundException
+	 * @throws ObjectNotFoundException
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}")
 	public ResponseEntity<Character> findById(@PathVariable("characterId") Integer characterId) {
