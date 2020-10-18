@@ -3,6 +3,7 @@ package com.dextra.challange.MarvelBackend.resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,4 +28,11 @@ public class CharacterResource {
 		Page<Character> result = findService.pagedSearch(page, linesPerPage);
 		return ResponseEntity.ok().body(result);
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}")
+	public ResponseEntity<Character> findById(@PathVariable Integer id) {
+		return null;
+	}
 }
+
+

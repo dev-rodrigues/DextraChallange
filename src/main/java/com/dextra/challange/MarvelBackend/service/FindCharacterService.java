@@ -1,6 +1,9 @@
 package com.dextra.challange.MarvelBackend.service;
 
 import org.springframework.data.domain.Sort;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,5 +21,11 @@ public class FindCharacterService {
 	public Page<Character> pagedSearch(Integer page, Integer size) {
 		PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.ASC, "name");
 		return characterRepository.search(pageRequest);
+	}
+	
+	public Character findById(Integer characterId) {
+		Optional<Character> localizedObject = characterRepository.findById(characterId);
+		
+		return null;
 	}
 }
