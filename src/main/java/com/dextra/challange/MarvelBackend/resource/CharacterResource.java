@@ -1,5 +1,7 @@
 package com.dextra.challange.MarvelBackend.resource;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dextra.challange.MarvelBackend.domain.entity.Character;
+import com.dextra.challange.MarvelBackend.domain.entity.Comic;
 import com.dextra.challange.MarvelBackend.service.FindCharacterService;
+import com.dextra.challange.MarvelBackend.service.FindComicBookCharacterService;
 
 @RestController
 @RequestMapping(value = "/v1/public/characters")
@@ -18,6 +22,9 @@ public class CharacterResource {
 
 	@Autowired
 	private FindCharacterService findService;
+	
+	@Autowired
+	private FindComicBookCharacterService findComicBookCharacterService;
 
 	
 	/**
@@ -71,6 +78,13 @@ public class CharacterResource {
 	public ResponseEntity<Character> findById(@PathVariable("characterId") Integer characterId) {
 		
 		Character result = findService.findById(characterId);		
+		return ResponseEntity.ok().body(result);
+	}
+		
+	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}/comics")
+	public ResponseEntity<List<Comic>> findComic(@PathVariable("characterId") Integer characterId) {
+		
+		List<Comic> result = findComicBookCharacterService.find(characterId);		
 		return ResponseEntity.ok().body(result);
 	}
 }
