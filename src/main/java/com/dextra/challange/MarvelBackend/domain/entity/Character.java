@@ -64,6 +64,7 @@ public class Character implements Serializable {
 			joinColumns = @JoinColumn(name = "character_id"),
 			inverseJoinColumns = @JoinColumn(name = "url_id")
 		)
+	@Getter
 	private List<Url> urls= new ArrayList<>(); 
 
 	@Getter
@@ -77,9 +78,11 @@ public class Character implements Serializable {
 			joinColumns = @JoinColumn(name = "character_id"),
 			inverseJoinColumns = @JoinColumn(name = "comic_id")
 		)
+	@Getter
 	private List<Comic> comics = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "character", cascade = CascadeType.ALL)
+	@Getter
 	private List<Event> events = new ArrayList<>();
 	
 	@JsonIgnore
@@ -89,6 +92,7 @@ public class Character implements Serializable {
 			joinColumns = @JoinColumn(name = "character_id"),
 			inverseJoinColumns = @JoinColumn(name = "serie_id")
 		)
+	@Getter
 	private List<Serie> series = new ArrayList<>();
 	
 	@JsonIgnore
@@ -98,6 +102,7 @@ public class Character implements Serializable {
 			joinColumns = @JoinColumn(name = "character_id"),
 			inverseJoinColumns = @JoinColumn(name = "history_id")
 		)
+	@Getter
 	private List<History> histories = new ArrayList<>();
 
 	public Character() {

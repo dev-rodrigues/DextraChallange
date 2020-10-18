@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.dextra.challange.MarvelBackend.domain.entity.Character;
 import com.dextra.challange.MarvelBackend.exception.ObjectNotFoundException;
-import com.dextra.challange.MarvelBackend.repository.CharacterRepository;
+import com.dextra.challange.MarvelBackend.repository.jpaRepository.CharacterRepository;
 
 @Service
 public class FindCharacterService {
