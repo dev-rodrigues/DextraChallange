@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
-import com.dextra.challange.MarvelBackend.domain.Character;
+import com.dextra.challange.MarvelBackend.domain.entity.Character;
 import com.dextra.challange.MarvelBackend.repository.CharacterRepository;
 
 @Service

@@ -1,4 +1,4 @@
-package com.dextra.challange.MarvelBackend.domain;
+package com.dextra.challange.MarvelBackend.domain.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;

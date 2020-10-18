@@ -1,20 +1,21 @@
-package com.dextra.challange.MarvelBackend.domain;
+package com.dextra.challange.MarvelBackend.domain.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-public class Serie implements Serializable {
+public class Event implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -32,11 +33,17 @@ public class Serie implements Serializable {
 	@Setter
 	private String resourceURI;
 	
-	@ManyToMany(mappedBy = "series")
-	private List<Character> characters = new ArrayList<>();
-	
-	public Serie() {
-		
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name="character_id")
+	private Character character;
+
+	public Event() {
+
 	}
 
+	public Event(String name, String resourceURI) {
+		this.name = name;
+		this.resourceURI = resourceURI;
+	}
 }
