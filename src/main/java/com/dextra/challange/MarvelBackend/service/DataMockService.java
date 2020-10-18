@@ -60,6 +60,12 @@ public class DataMockService {
 				
 		History history = new History("History of SpiderMan", "marvel.com", Arrays.asList(character1));
 		historyRepository.saveAll(Arrays.asList(history));
+		
+		
+		Event event = new Event("Comic", "https://www.ccxp.com.br/");
+		event.setCharacter(character1);
+		eventRepository.save(event);
+		
 	}
 
 }
