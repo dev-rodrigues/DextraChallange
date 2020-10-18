@@ -39,6 +39,11 @@ import lombok.Setter;
 		query = "select c from Character c "
 				+ "left join fetch c.series cm "
 				+ "where c.id = ?1 "),
+	
+	@NamedQuery(name = "Comic.Find_Histories",
+		query = "select c from Character c "
+				+ "left join fetch c.histories cm "
+				+ "where c.id = ?1 "),
 })
 @Entity
 public class Character implements Serializable {

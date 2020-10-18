@@ -19,6 +19,19 @@ public class FindCharacterService {
 	@Autowired
 	private CharacterRepository characterRepository;
 
+	
+	/**
+	 * Method to list Characters
+	 * 
+	 * @author Carlos Henrique
+	 * @since 18/10/2020
+	 * 
+	 * @param page - total pages
+	 * @param linesPerPage - lines per page
+	 * 
+	 * @return 
+	 * Page<Character>	
+	 */
 	public Page<Character> pagedSearch(Integer page, Integer size) {
 		PageRequest pageRequest = PageRequest.of(page, size, Sort.Direction.ASC, "name");
 		return characterRepository.search(pageRequest);

@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dextra.challange.MarvelBackend.domain.entity.Character;
 import com.dextra.challange.MarvelBackend.domain.entity.Comic;
 import com.dextra.challange.MarvelBackend.domain.entity.Event;
+import com.dextra.challange.MarvelBackend.domain.entity.History;
 import com.dextra.challange.MarvelBackend.domain.entity.Serie;
 import com.dextra.challange.MarvelBackend.service.FindCharacterService;
 import com.dextra.challange.MarvelBackend.service.FindComicBookCharacterService;
 import com.dextra.challange.MarvelBackend.service.FindEventsService;
+import com.dextra.challange.MarvelBackend.service.FindStoriesService;
 import com.dextra.challange.MarvelBackend.service.FindSeriesService;
 
 @RestController
@@ -35,10 +37,13 @@ public class CharacterResource {
 	
 	@Autowired
 	private FindSeriesService findSeriesService;
+	
+	@Autowired
+	private FindStoriesService findHistoriesService;
 
 	
 	/**
-	 * Método que lista personagens
+	 * Method to list Characters
 	 * 
 	 * @author Carlos Henrique
 	 * @since 18/10/2020
@@ -109,6 +114,13 @@ public class CharacterResource {
 	public ResponseEntity<List<Serie>> findSeries(@PathVariable("characterId") Integer characterId) {
 		
 		List<Serie> result = findSeriesService.find(characterId);		
+		return ResponseEntity.ok().body(result);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}/stories")
+	public ResponseEntity<List<History>> findHistories(@PathVariable("characterId") Integer characterId) {
+		
+		List<History> result = findHistoriesService.find(characterId);		
 		return ResponseEntity.ok().body(result);
 	}
 }
