@@ -38,5 +38,10 @@ public class Serie implements Serializable {
 	public Serie() {
 		
 	}
+	
+	public Serie(String name, String resourceURI) {
+		this.name = name;
+		this.resourceURI = resourceURI;
+	}
 
 }

@@ -33,6 +33,8 @@ public class Event implements Serializable {
 	@Setter
 	private String resourceURI;
 	
+	@Getter
+	@Setter
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="character_id")

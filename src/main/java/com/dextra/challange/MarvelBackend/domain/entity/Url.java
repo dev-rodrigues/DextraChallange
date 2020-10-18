@@ -24,8 +24,12 @@ public class Url implements Serializable {
 	@Getter
 	@Setter
 	private String url;
-	
+
 	public Url() {
-		
+
+	}
+
+	public Url(String url) {
+		this.url = url;
 	}
 }
