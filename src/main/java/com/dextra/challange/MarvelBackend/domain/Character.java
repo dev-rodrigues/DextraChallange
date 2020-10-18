@@ -67,6 +67,24 @@ public class Character implements Serializable {
 	
 	@OneToMany(mappedBy = "character", cascade = CascadeType.ALL)
 	private List<Event> events = new ArrayList<>();
+	
+	@JsonIgnore
+	@ManyToMany
+	@JoinTable(		
+			name = "CHARACTER_SERIE", 
+			joinColumns = @JoinColumn(name = "character_id"),
+			inverseJoinColumns = @JoinColumn(name = "serie_id")
+		)
+	private List<Serie> series = new ArrayList<>();
+	
+	@JsonIgnore
+	@ManyToMany
+	@JoinTable(		
+			name = "CHARACTER_HISTORY", 
+			joinColumns = @JoinColumn(name = "character_id"),
+			inverseJoinColumns = @JoinColumn(name = "history_id")
+		)
+	private List<History> histories = new ArrayList<>();
 
 	public Character() {
 
