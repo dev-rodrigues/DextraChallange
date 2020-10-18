@@ -23,11 +23,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
-@NamedQueries({ 
+@NamedQueries({
+	
 	@NamedQuery(name = "Comic.Find_Comics",
 			query = "select c from Character c "
 					+ "left join fetch c.comics cm "
-					+ "where c.id = ?1 ")
+					+ "where c.id = ?1 "),
+	
+	@NamedQuery(name = "Comic.Find_Events",
+			query = "select c from Character c "
+					+ "left join fetch c.events cm "
+					+ "where c.id = ?1 "),
 })
 @Entity
 public class Character implements Serializable {

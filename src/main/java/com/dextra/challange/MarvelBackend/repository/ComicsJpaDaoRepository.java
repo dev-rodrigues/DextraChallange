@@ -23,9 +23,9 @@ import com.dextra.challange.MarvelBackend.exception.ObjectNotFoundException;
 
 @EnableTransactionManagement
 @Repository
-public class ComicJpaDaoRepository extends JdbcDaoSupport {
+public class ComicsJpaDaoRepository extends JdbcDaoSupport {
 	
-	private static Logger logger = LoggerFactory.getLogger(ComicJpaDaoRepository.class);
+	private static Logger logger = LoggerFactory.getLogger(ComicsJpaDaoRepository.class);
 
 	@PersistenceContext
 	private EntityManager em;
