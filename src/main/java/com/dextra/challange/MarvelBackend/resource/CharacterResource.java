@@ -30,8 +30,10 @@ public class CharacterResource {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}")
-	public ResponseEntity<Character> findById(@PathVariable Integer id) {
-		return null;
+	public ResponseEntity<Character> findById(@PathVariable("characterId") Integer characterId) {
+		
+		Character result = findService.findById(characterId);		
+		return ResponseEntity.ok().body(result);
 	}
 }
 

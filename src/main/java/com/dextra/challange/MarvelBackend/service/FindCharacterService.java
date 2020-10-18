@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.dextra.challange.MarvelBackend.domain.entity.Character;
+import com.dextra.challange.MarvelBackend.exception.ObjectNotFoundException;
 import com.dextra.challange.MarvelBackend.repository.CharacterRepository;
 
 @Service
@@ -26,6 +27,11 @@ public class FindCharacterService {
 	public Character findById(Integer characterId) {
 		Optional<Character> localizedObject = characterRepository.findById(characterId);
 		
-		return null;
+		return localizedObject.orElseThrow(
+				() -> new ObjectNotFoundException(
+						"Object NotFound Exception! Id: " 
+								+ characterId 
+								+ ", Type: " 
+								+ Character.class.getName()));
 	}
 }
