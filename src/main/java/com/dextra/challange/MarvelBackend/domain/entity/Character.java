@@ -97,12 +97,27 @@ public class Character implements Serializable {
 	}
 
 	public Character(String name, String description, Date modified, String resourceURI, String thumbnail) {
-		super();
 		this.name = name;
 		this.description = description;
 		this.modified = modified;
 		this.resourceURI = resourceURI;
 		this.thumbnail = thumbnail;
+	}
+	
+	public void addUrl(Url url) {
+		this.urls.add(url);
+	}
+	
+	public void addComic(Comic comic) {
+		this.comics.add(comic);
+	}
+	
+	public void addSerie(Serie serie) {
+		this.series.add(serie);
+	}
+	
+	public void addEvent(Event event) {
+		this.events.add(event);
 	}
 
 	@Override

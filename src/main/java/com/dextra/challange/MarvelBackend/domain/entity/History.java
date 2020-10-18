@@ -49,7 +49,16 @@ public class History implements Serializable {
 	public History() {
 		addType(TypeOfHistory.INTERIOR);
 	}
-
+	
+	public History(String name, String resourceURI, List<Character> characters) {
+		this.name = name;
+		this.resourceURI = resourceURI;
+		
+		for(Character character : characters) {
+			this.characters.add(character);
+		}		
+	}
+	
 	private void addType(TypeOfHistory perfil) {
 		types.add(perfil.getCod());
 	}
