@@ -56,7 +56,7 @@ public class Character implements Serializable {
 			joinColumns = @JoinColumn(name = "character_id"),
 			inverseJoinColumns = @JoinColumn(name = "url_id")
 		)
-	private List<Url> urls= new ArrayList<>();
+	private List<Url> urls= new ArrayList<>(); 
 
 	@Getter
 	@Setter
