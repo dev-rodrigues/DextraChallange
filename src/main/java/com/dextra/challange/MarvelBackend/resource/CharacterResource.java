@@ -29,6 +29,26 @@ public class CharacterResource {
 		return ResponseEntity.ok().body(result);
 	}
 	
+	
+	/**
+	 * Method that searches for a Character given the id
+	 * 
+	 * @author Carlos Henrique
+	 * @since 18/10/2020
+	 * 
+	 * @param characterId - Desired Character Id
+	 * 
+	 * @return ResponseEntity with a Character object and the HTTP status
+	 * 
+	 * HTTP Status:
+	 * 
+	 * 200 - OK
+	 * 400 - Bad Request
+	 * 404 - Not Found
+	 * 500 - Server Errors
+	 * 
+	 * @throws TransactionNotFoundException
+	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}")
 	public ResponseEntity<Character> findById(@PathVariable("characterId") Integer characterId) {
 		
