@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -62,6 +64,9 @@ public class Character implements Serializable {
 			inverseJoinColumns = @JoinColumn(name = "comic_id")
 		)
 	private List<Comic> comics = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "character", cascade = CascadeType.ALL)
+	private List<Event> events = new ArrayList<>();
 
 	public Character() {
 
