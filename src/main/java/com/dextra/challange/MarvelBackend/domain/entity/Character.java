@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -21,6 +23,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
+@NamedQueries({ 
+	@NamedQuery(name = "Comic.Find_Comics",
+			query = "select c from Character c "
+					+ "left join fetch c.comics cm "
+					+ "where c.id = ?1 ")
+})
 @Entity
 public class Character implements Serializable {
 
