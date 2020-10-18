@@ -16,7 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import com.dextra.challange.MarvelBackend.domain.entity.valuableObject.TypeOfHistory;
+import com.dextra.challange.MarvelBackend.domain.valuableObject.TypeOfHistory;
 
 import lombok.Getter;
 import lombok.Setter;

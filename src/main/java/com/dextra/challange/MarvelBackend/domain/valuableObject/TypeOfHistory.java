@@ -1,4 +1,4 @@
-package com.dextra.challange.MarvelBackend.domain.entity.valuableObject;
+package com.dextra.challange.MarvelBackend.domain.valuableObject;
 
 import lombok.Getter;
 
