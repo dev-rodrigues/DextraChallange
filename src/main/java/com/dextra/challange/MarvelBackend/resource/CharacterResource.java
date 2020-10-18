@@ -20,6 +20,26 @@ public class CharacterResource {
 	private FindCharacterService findService;
 
 	
+	/**
+	 * Método que lista personagens
+	 * 
+	 * @author Carlos Henrique
+	 * @since 18/10/2020
+	 * 
+	 * @param page - total pages
+	 * @param linesPerPage - lines per page
+	 * 
+	 * @return ResponseEntity with a Page<Character> object and the HTTP status
+	 * 
+	 * HTTP Status:
+	 * 
+	 * 200 - OK
+	 * 400 - Bad Request
+	 * 404 - Not Found
+	 * 500 - Server Errors
+	 * 
+	 * @throws ObjectNotFoundException
+	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<Page<Character>> find(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
@@ -46,8 +66,6 @@ public class CharacterResource {
 	 * 400 - Bad Request
 	 * 404 - Not Found
 	 * 500 - Server Errors
-	 * 
-	 * @throws ObjectNotFoundException
 	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}")
 	public ResponseEntity<Character> findById(@PathVariable("characterId") Integer characterId) {
