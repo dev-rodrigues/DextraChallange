@@ -95,7 +95,24 @@ public class CharacterResource {
 		Character result = findService.findById(characterId);		
 		return ResponseEntity.ok().body(result);
 	}
-		
+	
+	/**
+	 * Method that searches for a character's comics
+	 * 
+	 * @author Carlos Henrique
+	 * @since 18/10/2020
+	 * 
+	 * @param characterId - Desired Character Id
+	 * 
+	 * @return ResponseEntity with a List<Comic> object and the HTTP status
+	 * 
+	 * HTTP Status:
+	 * 
+	 * 200 - OK
+	 * 400 - Bad Request
+	 * 404 - Not Found
+	 * 500 - Server Errors
+	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}/comics")
 	public ResponseEntity<List<Comic>> findComic(@PathVariable("characterId") Integer characterId) {
 		
@@ -103,13 +120,47 @@ public class CharacterResource {
 		return ResponseEntity.ok().body(result);
 	}
 	
+	/**
+	 * Method that looks for a character's events
+	 * 
+	 * @author Carlos Henrique
+	 * @since 18/10/2020
+	 * 
+	 * @param characterId - Desired Character Id
+	 * 
+	 * @return ResponseEntity with a List<Event> object and the HTTP status
+	 * 
+	 * HTTP Status:
+	 * 
+	 * 200 - OK
+	 * 400 - Bad Request
+	 * 404 - Not Found
+	 * 500 - Server Errors
+	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}/events")
 	public ResponseEntity<List<Event>> findEvents(@PathVariable("characterId") Integer characterId) {
 		
 		List<Event> result = findEventsService.find(characterId);		
 		return ResponseEntity.ok().body(result);
 	}
-	
+		
+	/**
+	 * Method that looks for a character's series
+	 * 
+	 * @author Carlos Henrique
+	 * @since 18/10/2020
+	 * 
+	 * @param characterId - Desired Character Id
+	 * 
+	 * @return ResponseEntity with a List<Event> object and the HTTP status
+	 * 
+	 * HTTP Status:
+	 * 
+	 * 200 - OK
+	 * 400 - Bad Request
+	 * 404 - Not Found
+	 * 500 - Server Errors
+	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}/series")
 	public ResponseEntity<List<Serie>> findSeries(@PathVariable("characterId") Integer characterId) {
 		
@@ -117,6 +168,23 @@ public class CharacterResource {
 		return ResponseEntity.ok().body(result);
 	}
 	
+	/**
+	 * Method that searches for the stories of a character
+	 * 
+	 * @author Carlos Henrique
+	 * @since 18/10/2020
+	 * 
+	 * @param characterId - Desired Character Id
+	 * 
+	 * @return ResponseEntity with a List<History> object and the HTTP status
+	 * 
+	 * HTTP Status:
+	 * 
+	 * 200 - OK
+	 * 400 - Bad Request
+	 * 404 - Not Found
+	 * 500 - Server Errors
+	 */
 	@RequestMapping(method = RequestMethod.GET, value = "/{characterId}/stories")
 	public ResponseEntity<List<History>> findHistories(@PathVariable("characterId") Integer characterId) {
 		
@@ -124,5 +192,3 @@ public class CharacterResource {
 		return ResponseEntity.ok().body(result);
 	}
 }
-
-
