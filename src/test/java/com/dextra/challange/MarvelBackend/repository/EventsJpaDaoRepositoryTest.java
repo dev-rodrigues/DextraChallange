@@ -1,4 +1,4 @@
-package com.dextra.challange.MarvelBackend.service;
+package com.dextra.challange.MarvelBackend.repository;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -19,26 +19,23 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
-import com.dextra.challange.MarvelBackend.domain.entity.Comic;
+import com.dextra.challange.MarvelBackend.domain.entity.Event;
 import com.dextra.challange.MarvelBackend.exception.ObjectNotFoundException;
 
 @SpringBootTest
 @ActiveProfiles("test")
 @TestInstance(Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation.class)
-@TestExecutionListeners({ 
-	DependencyInjectionTestExecutionListener.class, 
-	MockitoTestExecutionListener.class 
-})
-public class FindComicBookCharacterServiceTest {
+@TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, MockitoTestExecutionListener.class })
+public class EventsJpaDaoRepositoryTest {
 	
 	@Autowired
-	private FindComicBookCharacterService service; 
-	
+	private EventsJpaDaoRepository repository;
+
 	@Test
 	@Order(1)
 	public void theReturnMustBeAList() {
-		List<Comic> result = service.find(1);
+		List<Event> result = repository.getEvents(1);
 
 		assertTrue(result instanceof List);
 	}
@@ -46,19 +43,19 @@ public class FindComicBookCharacterServiceTest {
 	@Test
 	@Order(2)
 	public void theReturnOfListCannotBeNull() {
-		List<Comic> result = service.find(1);
+		List<Event> result = repository.getEvents(1);
 		assertNotNull(result);
 	}
-	
+
 	@Test
 	@Order(3)
 	public void throwNotFoundForIdInexistent() {
-		
-		ObjectNotFoundException thrown = assertThrows(
-				ObjectNotFoundException.class
-			,	() -> service.find(2)
-			,	"Expected ObjectNotFoundException() to throw");
-		
+
+		ObjectNotFoundException thrown = 
+				assertThrows(ObjectNotFoundException.class, 
+						() -> repository.getEvents(2),
+				"Expected ObjectNotFoundException() to throw");
+
 		assertTrue(thrown.getMessage().contains("NotFound"));
 	}
 }

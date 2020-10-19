@@ -1,4 +1,4 @@
-package com.dextra.challange.MarvelBackend.service;
+package com.dextra.challange.MarvelBackend.repository;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -19,7 +19,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
-import com.dextra.challange.MarvelBackend.domain.entity.Comic;
+import com.dextra.challange.MarvelBackend.domain.entity.History;
 import com.dextra.challange.MarvelBackend.exception.ObjectNotFoundException;
 
 @SpringBootTest
@@ -30,15 +30,15 @@ import com.dextra.challange.MarvelBackend.exception.ObjectNotFoundException;
 	DependencyInjectionTestExecutionListener.class, 
 	MockitoTestExecutionListener.class 
 })
-public class FindComicBookCharacterServiceTest {
+public class StoriesJpaDaoRepositoryTest {
 	
 	@Autowired
-	private FindComicBookCharacterService service; 
+	private StoriesJpaDaoRepository repository;
 	
 	@Test
 	@Order(1)
 	public void theReturnMustBeAList() {
-		List<Comic> result = service.find(1);
+		List<History> result = repository.getStories(1);
 
 		assertTrue(result instanceof List);
 	}
@@ -46,19 +46,19 @@ public class FindComicBookCharacterServiceTest {
 	@Test
 	@Order(2)
 	public void theReturnOfListCannotBeNull() {
-		List<Comic> result = service.find(1);
+		List<History> result = repository.getStories(1);
 		assertNotNull(result);
 	}
-	
+
 	@Test
 	@Order(3)
 	public void throwNotFoundForIdInexistent() {
-		
-		ObjectNotFoundException thrown = assertThrows(
-				ObjectNotFoundException.class
-			,	() -> service.find(2)
-			,	"Expected ObjectNotFoundException() to throw");
-		
+
+		ObjectNotFoundException thrown = 
+				assertThrows(ObjectNotFoundException.class, 
+						() -> repository.getStories(2),
+				"Expected ObjectNotFoundException() to throw");
+
 		assertTrue(thrown.getMessage().contains("NotFound"));
 	}
 }
