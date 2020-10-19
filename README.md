@@ -84,7 +84,7 @@ mvn test
     characterId: int
 ```
 
-### Obtém todos as séries de um personagem:
+### Obtém todas as séries de um personagem:
 ```
 --request GET
   url http://localhost:8080/v1/public/characters/{characterId}/series
@@ -93,7 +93,7 @@ mvn test
     characterId: int
 ```
 
-### Obtém todos as estórias de um personagem:
+### Obtém todas as estórias de um personagem:
 ```
 --request GET
   url http://localhost:8080/v1/public/characters/{characterId}/stories
