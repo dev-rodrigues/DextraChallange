@@ -22,7 +22,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-public class History implements Serializable {
+public class Story implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -40,18 +40,18 @@ public class History implements Serializable {
 	@Setter
 	private String resourceURI;
 	
-	@ManyToMany(mappedBy = "histories")
+	@ManyToMany(mappedBy = "stories")
 	private List<Character> characters = new ArrayList<>();
 	
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "TYPES")
 	private Set<Integer> types = new HashSet<>();
 	
-	public History() {
+	public Story() {
 		addType(TypeOfHistory.INTERIOR);
 	}
 	
-	public History(String name, String resourceURI, List<Character> characters) {
+	public Story(String name, String resourceURI, List<Character> characters) {
 		this.name = name;
 		this.resourceURI = resourceURI;
 		

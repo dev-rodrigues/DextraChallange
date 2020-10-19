@@ -3,9 +3,9 @@ package com.dextra.challange.MarvelBackend.repository.jpaRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.dextra.challange.MarvelBackend.domain.entity.History;
+import com.dextra.challange.MarvelBackend.domain.entity.Story;
 
 @Repository
-public interface HistoryRepository extends JpaRepository<History, Integer> {
+public interface HistoryRepository extends JpaRepository<Story, Integer> {
 
 }

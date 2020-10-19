@@ -18,7 +18,7 @@ import org.springframework.data.domain.PageImpl;
 
 import com.dextra.challange.MarvelBackend.domain.entity.Character;
 import com.dextra.challange.MarvelBackend.domain.entity.Event;
-import com.dextra.challange.MarvelBackend.domain.entity.History;
+import com.dextra.challange.MarvelBackend.domain.entity.Story;
 import com.dextra.challange.MarvelBackend.domain.entity.Serie;
 import com.dextra.challange.MarvelBackend.service.FindCharacterService;
 import com.dextra.challange.MarvelBackend.service.FindComicBookCharacterService;
@@ -154,7 +154,7 @@ public class CharacterResourceTest {
 	
 	@Test
 	public void mustReturnAListOfStoriesForTheCharacter() {
-		List<History> lista = new ArrayList<>();
+		List<Story> lista = new ArrayList<>();
 		
 		when(this.findHistoriesService.find(1))
 			.thenReturn(lista);

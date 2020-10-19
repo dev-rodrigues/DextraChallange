@@ -42,7 +42,7 @@ import lombok.Setter;
 	
 	@NamedQuery(name = "Comic.Find_Histories",
 		query = "select c from Character c "
-				+ "left join fetch c.histories cm "
+				+ "left join fetch c.stories cm "
 				+ "where c.id = ?1 "),
 })
 @Entity
@@ -119,7 +119,7 @@ public class Character implements Serializable {
 			inverseJoinColumns = @JoinColumn(name = "history_id")
 		)
 	@Getter
-	private List<History> histories = new ArrayList<>();
+	private List<Story> stories = new ArrayList<>();
 
 	public Character() {
 
@@ -147,6 +147,10 @@ public class Character implements Serializable {
 	
 	public void addEvent(Event event) {
 		this.events.add(event);
+	}
+	
+	public void addStories(Story story) {
+		this.stories.add(story);
 	}
 
 	@Override

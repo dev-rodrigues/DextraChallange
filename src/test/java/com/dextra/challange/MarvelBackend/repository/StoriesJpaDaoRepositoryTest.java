@@ -19,7 +19,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
-import com.dextra.challange.MarvelBackend.domain.entity.History;
+import com.dextra.challange.MarvelBackend.domain.entity.Story;
 import com.dextra.challange.MarvelBackend.exception.ObjectNotFoundException;
 
 @SpringBootTest
@@ -38,7 +38,7 @@ public class StoriesJpaDaoRepositoryTest {
 	@Test
 	@Order(1)
 	public void theReturnMustBeAList() {
-		List<History> result = repository.getStories(1);
+		List<Story> result = repository.getStories(1);
 
 		assertTrue(result instanceof List);
 	}
@@ -46,7 +46,7 @@ public class StoriesJpaDaoRepositoryTest {
 	@Test
 	@Order(2)
 	public void theReturnOfListCannotBeNull() {
-		List<History> result = repository.getStories(1);
+		List<Story> result = repository.getStories(1);
 		assertNotNull(result);
 	}
 

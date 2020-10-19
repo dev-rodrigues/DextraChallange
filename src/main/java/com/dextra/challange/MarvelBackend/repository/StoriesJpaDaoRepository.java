@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.dextra.challange.MarvelBackend.domain.entity.Character;
-import com.dextra.challange.MarvelBackend.domain.entity.History;
+import com.dextra.challange.MarvelBackend.domain.entity.Story;
 import com.dextra.challange.MarvelBackend.exception.ObjectNotFoundException;
 
 @EnableTransactionManagement
@@ -38,7 +38,7 @@ public class StoriesJpaDaoRepository extends JdbcDaoSupport {
 		this.setDataSource(this.dataSource);
 	}
 
-	public List<History> getStories(Integer characterId) {
+	public List<Story> getStories(Integer characterId) {
 		
 		Character result = null;
 		
@@ -57,6 +57,6 @@ public class StoriesJpaDaoRepository extends JdbcDaoSupport {
 							+ Character.class.getName());
 		}
 
-		return result.getHistories();
+		return result.getStories();
 	}
 }
