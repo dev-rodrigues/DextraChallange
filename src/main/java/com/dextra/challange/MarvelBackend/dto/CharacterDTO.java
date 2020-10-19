@@ -43,5 +43,6 @@ public class CharacterDTO implements Serializable {
 		this.name = obj.getName();
 		this.description = obj.getDescription();
 		this.modified = obj.getModified();
+		this.resourceURI = obj.getResourceURI();
 	}
 }
