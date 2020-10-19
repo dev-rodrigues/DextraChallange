@@ -19,23 +19,26 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
-import com.dextra.challange.MarvelBackend.domain.entity.Serie;
+import com.dextra.challange.MarvelBackend.domain.entity.History;
 import com.dextra.challange.MarvelBackend.exception.ObjectNotFoundException;
 
 @SpringBootTest
 @ActiveProfiles("test")
 @TestInstance(Lifecycle.PER_CLASS)
 @TestMethodOrder(OrderAnnotation.class)
-@TestExecutionListeners({ DependencyInjectionTestExecutionListener.class, MockitoTestExecutionListener.class })
-public class SerieJpaDaoRepositoryTest {
+@TestExecutionListeners({ 
+	DependencyInjectionTestExecutionListener.class, 
+	MockitoTestExecutionListener.class 
+})
+public class StoriesJpaDaoRepositoryTest {
 	
 	@Autowired
-	private SerieJpaDaoRepository repository;
+	private StoriesJpaDaoRepository repository;
 	
 	@Test
 	@Order(1)
 	public void theReturnMustBeAList() {
-		List<Serie> result = repository.getSeries(1);
+		List<History> result = repository.getStories(1);
 
 		assertTrue(result instanceof List);
 	}
@@ -43,7 +46,7 @@ public class SerieJpaDaoRepositoryTest {
 	@Test
 	@Order(2)
 	public void theReturnOfListCannotBeNull() {
-		List<Serie> result = repository.getSeries(1);
+		List<History> result = repository.getStories(1);
 		assertNotNull(result);
 	}
 
@@ -53,7 +56,7 @@ public class SerieJpaDaoRepositoryTest {
 
 		ObjectNotFoundException thrown = 
 				assertThrows(ObjectNotFoundException.class, 
-						() -> repository.getSeries(2),
+						() -> repository.getStories(2),
 				"Expected ObjectNotFoundException() to throw");
 
 		assertTrue(thrown.getMessage().contains("NotFound"));
