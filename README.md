@@ -102,5 +102,19 @@ mvn test
     characterId: int
 ```
 
+### Acessar o banco de dados:
+A aplicação está configurada para utilizar um banco de dados relacional em memória: h2-console, caso queira acessar:
+
+
+
+
+<ol>
+  <li>Na raiz do projeto </li>
+  <li>Execute: cd target/ </li>
+  <li>No terminal, execute: java -jar MarvelBackend-0.0.1-SNAPSHOT.jar</li>
+  <li>Abra seu navegador e acesse: http://localhost:8080/h2 </li>
+  <li>JDBC URL: jdbc:h2:mem:testdb </li>  
+</ol>
+
 
 
