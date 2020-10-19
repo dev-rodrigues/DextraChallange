@@ -1,6 +1,6 @@
 # DextraChallange
 
-Olá! Esté o DextraChallange, uma aplicação em Java JDK 8 que tem como objtivo expor os dados dos personagens da Marvel =)
+Olá! Esté o DextraChallange, uma aplicação em Java JDK 8 que tem como objetivo expor os dados dos personagens da Marvel =)
 
 ## Como Rodar
 
