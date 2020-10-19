@@ -56,7 +56,7 @@ public class StoriesJpaDaoRepositoryTest {
 
 		ObjectNotFoundException thrown = 
 				assertThrows(ObjectNotFoundException.class, 
-						() -> repository.getStories(2),
+						() -> repository.getStories(Integer.MAX_VALUE),
 				"Expected ObjectNotFoundException() to throw");
 
 		assertTrue(thrown.getMessage().contains("NotFound"));

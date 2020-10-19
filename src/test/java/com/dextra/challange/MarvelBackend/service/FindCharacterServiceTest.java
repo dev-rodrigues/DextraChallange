@@ -63,7 +63,7 @@ public class FindCharacterServiceTest {
 		
 		ObjectNotFoundException thrown = assertThrows(
 				ObjectNotFoundException.class
-			,	() -> service.findById(2)
+			,	() -> service.findById(Integer.MAX_VALUE)
 			,	"Expected ObjectNotFoundException() to throw");
 		
 		assertTrue(thrown.getMessage().contains("NotFound"));

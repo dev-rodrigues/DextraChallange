@@ -56,7 +56,7 @@ public class FindComicBookCharacterServiceTest {
 		
 		ObjectNotFoundException thrown = assertThrows(
 				ObjectNotFoundException.class
-			,	() -> service.find(2)
+			,	() -> service.find(Integer.MAX_VALUE)
 			,	"Expected ObjectNotFoundException() to throw");
 		
 		assertTrue(thrown.getMessage().contains("NotFound"));
