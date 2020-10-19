@@ -93,7 +93,7 @@ mvn test
     characterId: int
 ```
 
-### Obtém todas as estórias de um personagem:
+### Obtém todas as histórias de um personagem:
 ```
 --request GET
   url http://localhost:8080/v1/public/characters/{characterId}/stories
