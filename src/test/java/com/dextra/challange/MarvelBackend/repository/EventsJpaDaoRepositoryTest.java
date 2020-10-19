@@ -53,7 +53,7 @@ public class EventsJpaDaoRepositoryTest {
 
 		ObjectNotFoundException thrown = 
 				assertThrows(ObjectNotFoundException.class, 
-						() -> repository.getEvents(2),
+						() -> repository.getEvents(Integer.MAX_VALUE),
 				"Expected ObjectNotFoundException() to throw");
 
 		assertTrue(thrown.getMessage().contains("NotFound"));

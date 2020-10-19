@@ -53,7 +53,7 @@ public class SerieJpaDaoRepositoryTest {
 
 		ObjectNotFoundException thrown = 
 				assertThrows(ObjectNotFoundException.class, 
-						() -> repository.getSeries(2),
+						() -> repository.getSeries(Integer.MAX_VALUE),
 				"Expected ObjectNotFoundException() to throw");
 
 		assertTrue(thrown.getMessage().contains("NotFound"));

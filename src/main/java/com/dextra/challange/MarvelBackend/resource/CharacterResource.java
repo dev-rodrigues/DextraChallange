@@ -15,6 +15,7 @@ import com.dextra.challange.MarvelBackend.domain.entity.Character;
 import com.dextra.challange.MarvelBackend.domain.entity.Comic;
 import com.dextra.challange.MarvelBackend.domain.entity.Event;
 import com.dextra.challange.MarvelBackend.domain.entity.Story;
+import com.dextra.challange.MarvelBackend.dto.CharacterDTO;
 import com.dextra.challange.MarvelBackend.domain.entity.Serie;
 import com.dextra.challange.MarvelBackend.service.FindCharacterService;
 import com.dextra.challange.MarvelBackend.service.FindComicBookCharacterService;
@@ -63,12 +64,14 @@ public class CharacterResource {
 	 * @throws ObjectNotFoundException
 	 */
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<Page<Character>> find(
+	public ResponseEntity<Page<CharacterDTO>> find(
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "24") Integer linesPerPage) {
 
 		Page<Character> result = findService.pagedSearch(page, linesPerPage);
-		return ResponseEntity.ok().body(result);
+		Page<CharacterDTO> resultDTO = result.map(obj -> new CharacterDTO(obj));
+		
+		return ResponseEntity.ok().body(resultDTO);
 	}
 	
 	
