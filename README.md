@@ -1,6 +1,6 @@
 # DextraChallenge
 
-Olá! Esté o DextraChallenge, uma aplicação em Java JDK 8 que tem como objetivo expor os dados dos personagens da Marvel =)
+Olá! Este é o DextraChallenge, uma aplicação em Java JDK 8 que tem como objetivo expor os dados dos personagens da Marvel =)
 
 ## Como rodar
 
