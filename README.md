@@ -1,8 +1,8 @@
-# DextraChallange
+# DextraChallenge
 
-Olá! Esté o DextraChallange, uma aplicação em Java JDK 8 que tem como objetivo expor os dados dos personagens da Marvel =)
+Olá! Esté o DextraChallenge, uma aplicação em Java JDK 8 que tem como objetivo expor os dados dos personagens da Marvel =)
 
-## Como Rodar
+## Como rodar
 
 Você pode executar a aplicação de duas formas diferentes, mas é importante que seja realizado o clone do projeto primeiro:
 
@@ -18,7 +18,7 @@ Compile a aplicação utilizando o maven:
 mvn clean install
 ```
 
-# Executando A Aplicação:
+# Executando a aplicação:
 
 <ul>
   <li>1. Executando através do Jar gerado pelo Maven</li>  
@@ -33,19 +33,19 @@ java -jar MarvelBackend-0.0.1-SNAPSHOT.jar
   <li>2. Executando a aplicação pelo Docker </li>  
 </ul>
 
-**Retorne Para A Pasta Raiz Do Projeto E Execute:**
+**Retorne para a pasta raiz do projeto e execute:**
 ```
 docker build -t marvel-backend .
 docker run -p 8080:8080 marvel-backend
 ```
 
-# Executando Os Testes Unitários:
+# Executando os testes unitários:
 **Retorne Para A Pasta Raiz Do Projeto E Execute:**
 ```
 mvn test
 ```
 
-# Como Utilizar:
+# Como utilizar:
 
 ### Obtém todos os personagens:
 ```
