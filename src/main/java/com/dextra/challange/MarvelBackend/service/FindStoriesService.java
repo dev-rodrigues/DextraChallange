@@ -12,9 +12,9 @@ import com.dextra.challange.MarvelBackend.repository.StoriesJpaDaoRepository;
 public class FindStoriesService {
 	
 	@Autowired
-	private StoriesJpaDaoRepository historiesJpaDaoRepository;
+	private StoriesJpaDaoRepository storiesJpaDaoRepository;
 
 	public List<History> find(Integer characterId) {
-		return historiesJpaDaoRepository.getStories(characterId);
+		return storiesJpaDaoRepository.getStories(characterId);
 	}
 }
