@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -21,6 +23,28 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
+@NamedQueries({
+	
+	@NamedQuery(name = "Comic.Find_Comics",
+			query = "select c from Character c "
+					+ "left join fetch c.comics cm "
+					+ "where c.id = ?1 "),
+	
+	@NamedQuery(name = "Comic.Find_Events",
+			query = "select c from Character c "
+					+ "left join fetch c.events cm "
+					+ "where c.id = ?1 "),
+	
+	@NamedQuery(name = "Comic.Find_Series",
+		query = "select c from Character c "
+				+ "left join fetch c.series cm "
+				+ "where c.id = ?1 "),
+	
+	@NamedQuery(name = "Comic.Find_Histories",
+		query = "select c from Character c "
+				+ "left join fetch c.histories cm "
+				+ "where c.id = ?1 "),
+})
 @Entity
 public class Character implements Serializable {
 
@@ -56,6 +80,7 @@ public class Character implements Serializable {
 			joinColumns = @JoinColumn(name = "character_id"),
 			inverseJoinColumns = @JoinColumn(name = "url_id")
 		)
+	@Getter
 	private List<Url> urls= new ArrayList<>(); 
 
 	@Getter
@@ -69,9 +94,11 @@ public class Character implements Serializable {
 			joinColumns = @JoinColumn(name = "character_id"),
 			inverseJoinColumns = @JoinColumn(name = "comic_id")
 		)
+	@Getter
 	private List<Comic> comics = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "character", cascade = CascadeType.ALL)
+	@Getter
 	private List<Event> events = new ArrayList<>();
 	
 	@JsonIgnore
@@ -81,6 +108,7 @@ public class Character implements Serializable {
 			joinColumns = @JoinColumn(name = "character_id"),
 			inverseJoinColumns = @JoinColumn(name = "serie_id")
 		)
+	@Getter
 	private List<Serie> series = new ArrayList<>();
 	
 	@JsonIgnore
@@ -90,6 +118,7 @@ public class Character implements Serializable {
 			joinColumns = @JoinColumn(name = "character_id"),
 			inverseJoinColumns = @JoinColumn(name = "history_id")
 		)
+	@Getter
 	private List<History> histories = new ArrayList<>();
 
 	public Character() {

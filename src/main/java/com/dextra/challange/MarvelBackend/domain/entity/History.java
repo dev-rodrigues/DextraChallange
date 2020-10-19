@@ -23,6 +23,7 @@ import lombok.Setter;
 
 @Entity
 public class History implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id

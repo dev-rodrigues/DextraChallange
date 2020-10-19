@@ -1,4 +1,4 @@
-package com.dextra.challange.MarvelBackend.repository;
+package com.dextra.challange.MarvelBackend.repository.jpaRepository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -12,12 +12,12 @@ import com.dextra.challange.MarvelBackend.domain.entity.Event;
 import com.dextra.challange.MarvelBackend.domain.entity.History;
 import com.dextra.challange.MarvelBackend.domain.entity.Serie;
 import com.dextra.challange.MarvelBackend.domain.entity.Url;
-import com.dextra.challange.MarvelBackend.repository.CharacterRepository;
-import com.dextra.challange.MarvelBackend.repository.ComicRepository;
-import com.dextra.challange.MarvelBackend.repository.EventRepository;
-import com.dextra.challange.MarvelBackend.repository.HistoryRepository;
-import com.dextra.challange.MarvelBackend.repository.SerieRepository;
-import com.dextra.challange.MarvelBackend.repository.UrlRepository;
+import com.dextra.challange.MarvelBackend.repository.jpaRepository.CharacterRepository;
+import com.dextra.challange.MarvelBackend.repository.jpaRepository.ComicRepository;
+import com.dextra.challange.MarvelBackend.repository.jpaRepository.EventRepository;
+import com.dextra.challange.MarvelBackend.repository.jpaRepository.HistoryRepository;
+import com.dextra.challange.MarvelBackend.repository.jpaRepository.SerieRepository;
+import com.dextra.challange.MarvelBackend.repository.jpaRepository.UrlRepository;
 
 @Service
 public class DataMockService {
@@ -60,6 +60,12 @@ public class DataMockService {
 				
 		History history = new History("History of SpiderMan", "marvel.com", Arrays.asList(character1));
 		historyRepository.saveAll(Arrays.asList(history));
+		
+		
+		Event event = new Event("Comic", "https://www.ccxp.com.br/");
+		event.setCharacter(character1);
+		eventRepository.save(event);
+		
 	}
 
 }
