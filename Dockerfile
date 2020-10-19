@@ -2,6 +2,7 @@ FROM openjdk
 
 WORKDIR /app
 
-COPY target/MarvelBackend-0.0.1-SNAPSHOT.jar /app/spring-app.jar
+COPY ./ /app/
 
-ENTRYPOINT ["java", "-jar", "spring-app.jar"]
+ENTRYPOINT ["mvn", "clean", "install", "java", "-jar", "MarvelBackend-0.0.1-SNAPSHOT.jar"]
+jar"]
